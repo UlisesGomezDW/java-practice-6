@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Clase principal para ver resultados.
  */
 package Vista;
 
@@ -12,7 +10,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author alumno44
+ * @author RANGEL PAREDES ANA SOFIA, GOMEZ GOMEZ BRYAN ULISES, BENITEZ RIOS CARLOS EDUARDO.
+ * @version: 1.0
  */
 public class Main {
 
@@ -26,8 +25,12 @@ public class Main {
         
         cuentas = control.consultarCuentas();
 
-        Banco banco = new Banco(cuentas);
+        /* 
+            See all fields of db
+            System.out.println(banco.toString());
+        */
 
+        Banco banco = new Banco(cuentas);
         System.out.println("\nSaldo promedio de todas las cuentas por cada sucursal: AZC, CUA, XOC.");
         System.out.println(banco.obtenerSaldoPromedio());
 
@@ -39,7 +42,6 @@ public class Main {
 
         System.out.println("\n¿Cuál es el nombre del cuentahabiente y la sucursal de apertura de la cuenta con mayor y menor saldo considerando cualquier sucursal?");
         System.out.println(banco.obtenerSaldosMayorMenor());
-        
         
     }
     

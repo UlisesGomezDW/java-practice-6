@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author GOMEZ GOMEZ BRYAN ULISES, BENITEZ RIOS CARLOS EDUARDO.
+ * @author RANGEL PAREDES ANA SOFIA, GOMEZ GOMEZ BRYAN ULISES, BENITEZ RIOS CARLOS EDUARDO.
  * @version: 1.0
  */
 public class ControladorBD {
@@ -69,7 +69,7 @@ public class ControladorBD {
        Statement st;
        try {
             st = conexion.createStatement();
-            String query = "SELECT * FROM " + TABLE;
+            String query = "SELECT * FROM " + TABLE + " ORDER BY saldo DESC";
             ResultSet rs = st.executeQuery(query);
             while(rs.next()){
                 Cuenta c = new Cuenta();
@@ -85,4 +85,9 @@ public class ControladorBD {
        
        return cuentas;
    }
+   /*
+    * Método para insertar
+    * Método para actualizar
+    * Método para borrar
+    */
 }

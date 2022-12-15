@@ -5,7 +5,7 @@ package Modelo;
 
 /**
  *
- * @author GOMEZ GOMEZ BRYAN ULISES, BENITEZ RIOS CARLOS EDUARDO.
+ * @author RANGEL PAREDES ANA SOFIA, GOMEZ GOMEZ BRYAN ULISES, BENITEZ RIOS CARLOS EDUARDO.
  * @version: 1.0
  */
 public class Cuenta {
