@@ -122,7 +122,23 @@ public class Banco {
     * @return sucursal con menor saldo total
     */
     public String obtenerSucursalConMenorSaldo() {
-        return "AZC";
+        String sucursal = "";
+        double saldoAzc = obtenerSueldoTotal(filtrarCuentas(AZC));
+        double saldoCua = obtenerSueldoTotal(filtrarCuentas(CUA));
+        double saldoXoc = obtenerSueldoTotal(filtrarCuentas(XOC));
+
+        double min = Math.min(saldoAzc, Math.min(saldoCua, saldoXoc));
+
+        if(min == saldoAzc) {
+            sucursal = AZC;
+        } else if(min == saldoCua){
+            sucursal = CUA;
+        } else if(min == saldoXoc){
+            sucursal = XOC;
+        } else {
+            sucursal = "Todas tienen la misma cantidad";
+        }
+        return sucursal;
     }
 
     /**
