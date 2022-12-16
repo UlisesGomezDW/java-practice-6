@@ -6,6 +6,7 @@ package Datos;
 import Modelo.Cuenta;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -85,9 +86,72 @@ public class ControladorBD {
        
        return cuentas;
    }
-   /*
-    * Método para insertar
-    * Método para actualizar
-    * Método para borrar
+
+    /**
+    * Método para agregar una cuenta a la base de datos
+    * @param cuenta: Cuenta a agregar
+    * @return estado de si se agregó la cuenta
     */
+    public boolean agregarCuenta(Cuenta cuenta) {
+        boolean estado = false;
+        PreparedStatement ps; 
+        String query = "INSERT INTO " + TABLE + " VALUES (?, ?, ?, ?)";
+        try {
+            ps = conexion.prepareStatement(query);
+            ps.setInt(1, cuenta.getNumCuenta()); 
+            ps.setString(2, cuenta.getNombre());
+            ps.setDouble(3, cuenta.getSaldo());
+            ps.setString(4, cuenta.getSucursal());
+            ps.execute();
+            estado = true;
+        } catch (SQLException ex) {
+            System.out.println("SQL Error: " + ex.getMessage());
+        }
+    
+        return estado;
+    }
+
+    /**
+    * Método para eliminar una cuenta a la base de datos
+    * @param numCuenta: Número de cuenta
+    * @return estado de si se borró la cuenta
+    */
+    public boolean eliminarCuenta(int numCuenta) {
+        boolean estado = false;
+        PreparedStatement ps; 
+        String query = "DELETE FROM " + TABLE + " WHERE numCuenta=?";
+        try {
+            ps = conexion.prepareStatement(query);
+            ps.setInt(1, numCuenta);
+            ps.execute();
+            estado = true;
+        } catch (SQLException ex) {
+            System.out.println("SQL Error: " + ex.getMessage());
+        }
+    
+        return estado;
+    }
+
+    /**
+    * Método para actualizar una sucursal
+    * @param numCuenta: Número de cuenta
+    * @param sucursal: Sucursal
+    * @return estado de si se actualizó la cuenta
+    */
+    public boolean actualizarSucursal(int numCuenta, String sucursal) {
+        boolean estado = false;
+        PreparedStatement ps; 
+        String query = "UPDATE " + TABLE + " SET sucursal=? WHERE numCuenta=?";
+        try {
+            ps = conexion.prepareStatement(query);
+            ps.setString(1, sucursal);
+            ps.setInt(2, numCuenta);
+            ps.execute();
+            estado = true;
+        } catch (SQLException ex) {
+            System.out.println("SQL Error: " + ex.getMessage());
+        }
+    
+        return estado;
+    }
 }

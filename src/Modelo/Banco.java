@@ -112,7 +112,7 @@ public class Banco {
         } else if(max == cuentasXoc.size()){
             sucursal = XOC;
         } else {
-            sucursal = "Todas";
+            sucursal = "Todas las sucursales tienen la misma cantidad de cuentas";
         }
         return sucursal;
     }
@@ -136,7 +136,7 @@ public class Banco {
         } else if(min == saldoXoc){
             sucursal = XOC;
         } else {
-            sucursal = "Todas tienen la misma cantidad";
+            sucursal = "Todas las sucursales tienen la misma cantidad";
         }
         return sucursal;
     }

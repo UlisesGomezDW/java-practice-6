@@ -33,4 +33,4 @@ INSERT INTO cuentas VALUES('1225', "Noé Castro", 1236, "XOC");
 INSERT INTO cuentas VALUES('1226', "Raúl Pinto", 1345, "XOC");
 INSERT INTO cuentas VALUES('1227', "Mireya Vidal", 1310, "XOC");
 
-SELECT * FROM cuentas;
+SELECT * FROM cuentas ORDER BY saldo DESC;
